@@ -14,7 +14,7 @@ PyYAML==5.3
 scipy==1.4.1
 six==1.13.0
 tensorboard==1.11.0
-tensorflow==1.11.0
+tensorflow==1.15.0
 termcolor==1.1.0
 Werkzeug==0.16.0
 wincertstore==0.2
