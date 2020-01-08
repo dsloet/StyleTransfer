@@ -38,7 +38,7 @@ def gram_matrix(input_tensor):
   return gram
 
 def get_style_loss(base_style, gram_target):
-"""
+  """
     Computes the style reconstruction loss.
 
     Inputs:
@@ -47,7 +47,7 @@ def get_style_loss(base_style, gram_target):
 
     Returns:
     - style_loss: scalar style loss
-""""
+  """"
 
   height, width, channels = base_style.get_shape().as_list()
   gram_style = gram_matrix(base_style)
