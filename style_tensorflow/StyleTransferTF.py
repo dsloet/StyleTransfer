@@ -3,6 +3,16 @@ from style_tensorflow.utils_tf import load_img, deprocess_img
 
 ### Content Loss Function
 def get_content_loss(content, target):
+   """
+  Compute the content loss for style transfer.
+    Inputs:
+    - base: features of the content image, Tensor with shape [height, width, channels]
+    - output: features of the generated image, Tensor with shape[H,W,C]
+
+    Returns:
+    - Scalar of content loss
+
+  """
   return tf.reduce_mean(tf.square(content - target)) /2
 
 
