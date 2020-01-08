@@ -18,6 +18,18 @@ def get_content_loss(content, target):
 
 ### Style Loss Fucntion
 def gram_matrix(input_tensor):
+  """
+  Computes the outer-product of the input tensor x.
+
+    Input:
+    - x: input tensor of shape [H,W,C]. We reshape it to [C (H, W)]
+
+    Returns:
+    Tensor of shape [C,C] corresponding to the Gram matrix
+  
+  Your code goes here 
+  """
+  
 
   # if input tensor is a 3D array of size Nh x Nw X Nc
   # we reshape it to a 2D array of Nc x (Nh*Nw)
@@ -29,6 +41,16 @@ def gram_matrix(input_tensor):
   return gram
 
 def get_style_loss(base_style, gram_target):
+"""
+    Computes the style reconstruction loss.
+
+    Inputs:
+    - base: features at given layer of the style image.
+    - output: features of the generated image.
+
+    Returns:
+    - style_loss: scalar style loss
+""""
 
   height, width, channels = base_style.get_shape().as_list()
   gram_style = gram_matrix(base_style)
