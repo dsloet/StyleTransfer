@@ -11,7 +11,7 @@ def get_content_loss(content_image, target_image):
   Returns:
   - Scalar of content loss
   """
-  return tf.reduce_sum(tf.square(content_image, target_image)) / 2
+  return tf.reduce_mean(tf.square(content_image, target_image)) / 2
 
 ### Style Loss Fucntion
 def gram_matrix(input_tensor):
