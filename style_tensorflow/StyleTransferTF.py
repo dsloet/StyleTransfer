@@ -2,19 +2,16 @@ import tensorflow as tf
 from style_tensorflow.utils_tf import load_img, deprocess_img
 
 ### Content Loss Function
-def get_content_loss(content, target):
-   """
-  Compute the content loss for style transfer.
-    Inputs:
-    - base: features of the content image, Tensor with shape [height, width, channels]
-    - output: features of the generated image, Tensor with shape[H,W,C]
-
-    Returns:
-    - Scalar of content loss
-
+def get_content_loss(content_image, target_image):
   """
-  return tf.reduce_mean(tf.square(content - target)) /2
-
+  Compute the content loss for style transfer.
+  Inputs:
+  - base: features of the content image, Tensor with shape [height, width, channels]
+  - output: features of the generated image, Tensor with shape[H,W,C]
+  Returns:
+  - Scalar of content loss
+  """
+  return tf.reduce_sum(tf.square(content_image, target_image)) / 2
 
 ### Style Loss Fucntion
 def gram_matrix(input_tensor):
