@@ -2,48 +2,30 @@ import tensorflow as tf
 from style_tensorflow.utils_tf import load_img, deprocess_img
 
 ### Content Loss Function
-def get_content_loss(content_image, target_image):
-  """
-  Compute the content loss for style transfer.
-  Inputs:
-  - base: features of the content image, Tensor with shape [height, width, channels]
-  - output: features of the generated image, Tensor with shape[H,W,C]
-  Returns:
-  - Scalar of content loss
-  """
-  return tf.reduce_mean(tf.square(content_image, target_image)) / 2
+def get_content_loss(content, target):
+  return tf.reduce_mean(tf.square(content - target)) /2
 
 ### Style Loss Fucntion
 def gram_matrix(input_tensor):
-  """
-  Computes the outer-product of the input tensor x.
-
-    Input:
-    - x: input tensor of shape [H,W,C]. We reshape it to [C (H, W)]
-
-    Returns:
-    Tensor of shape [C,C] corresponding to the Gram matrix
-  
-  Your code goes here 
-  """
-  
 
   # if input tensor is a 3D array of size Nh x Nw X Nc
   # we reshape it to a 2D array of Nc x (Nh*Nw)
   channels = int(input_tensor.shape[-1])
   a = tf.reshape(input_tensor, [-1, channels])
+  n = tf.shape(a)[0]
+
   # get gram matrix 
   gram = tf.matmul(a, a, transpose_a=True)
   
   return gram
 
 def get_style_loss(base_style, gram_target):
+
   height, width, channels = base_style.get_shape().as_list()
   gram_style = gram_matrix(base_style)
   
   # Original eqn as a constant to divide i.e 1/(4. * (channels ** 2) * (width * height) ** 2)
   return tf.reduce_mean(tf.square(gram_style - gram_target)) / (channels**2 * width * height) #(4.0 * (channels ** 2) * (width * height) ** 2)
-
 
 
 def get_feature_representations(model, content_path, style_path, num_content_layers):
