@@ -46,7 +46,6 @@ def get_style_loss(base_style, gram_target):
 
 
 
-### Use to pass content and style image through it 
 def get_feature_representations(model, content_path, style_path, num_content_layers):
 
   # Load our images in 
