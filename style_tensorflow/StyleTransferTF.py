@@ -12,8 +12,7 @@ def gram_matrix(input_tensor):
   # we reshape it to a 2D array of Nc x (Nh*Nw)
   channels = int(input_tensor.shape[-1])
   a = tf.reshape(input_tensor, [-1, channels])
-  n = tf.shape(a)[0]
-
+  
   # get gram matrix 
   gram = tf.matmul(a, a, transpose_a=True)
   
