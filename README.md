@@ -1,4 +1,4 @@
-# StyleTransferKeras
+# Neural Style Transfer
 
 Using Keras or TensorFlow to perform style transfer on images.
 
