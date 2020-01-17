@@ -1,0 +1,5 @@
+{
+    "cornflakes.linter.executablePath": "c:\\Users\\Dsloetto\\AppData\\Local\\Continuum\\anaconda3\\scripts\\flake8",
+    "python.formatting.provider": "black",
+    "python.pythonPath": "C:\\Users\\dsloetto\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+}
