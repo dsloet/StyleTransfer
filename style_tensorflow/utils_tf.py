@@ -1,6 +1,6 @@
 from PIL import Image
 import numpy as np
-from tensorflow.python.keras.preprocessing import image as kp_image
+from tensorflow.keras.preprocessing import image as kp_image
 import tensorflow as tf
 
 
